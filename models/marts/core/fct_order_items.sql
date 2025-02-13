@@ -1,12 +1,6 @@
 {{
     config(
-        materialized='incremental',
-        incremental_strategy='microbatch',
-        event_time='order_time',
-        batch_size='day',
-        lookback=3,
-        begin=microbatch_begin(),
-        full_refresh=True,
+        materialized = 'table',
         tags = ['finance']
     )
 }}
@@ -26,7 +20,6 @@ final as (
         order_item.order_item_key,
         order_item.order_key,
         order_item.order_date,
-        order_item.order_time,
         order_item.customer_key,
         order_item.part_key,
         order_item.supplier_key,
