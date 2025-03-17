@@ -3,9 +3,9 @@
         materialized='incremental',
         incremental_strategy='microbatch',
         event_time='order_time',
-        batch_size='day',
+        batch_size='month',
         lookback=3,
-        begin=microbatch_begin(),
+        begin='2018-01-01',
         full_refresh=false,
         tags = ['finance']
     )
