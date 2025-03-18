@@ -1,12 +1,6 @@
 {{
     config(
         materialized='incremental',
-        incremental_strategy='microbatch',
-        event_time='order_time',
-        batch_size='day',
-        lookback=3,
-        begin=microbatch_begin(),
-        full_refresh=false,
         tags = ['finance']
     )
 }}
@@ -57,6 +51,12 @@ final as (
         inner join part_supplier
             on order_item.part_key = part_supplier.part_key and
                 order_item.supplier_key = part_supplier.supplier_key
+
+    {% if is_incremental() %}
+    -- this filter will only be applied on an incremental run
+    where order_date > (select max(order_date) from {{this}} )
+
+    {% endif %}                
 )
 select 
     *
