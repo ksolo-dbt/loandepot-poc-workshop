@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='table',
+        materialized = 'table',
         tags = ['finance']
     )
 }}
@@ -20,7 +20,6 @@ final as (
         order_item.order_item_key,
         order_item.order_key,
         order_item.order_date,
-        order_item.order_time,
         order_item.customer_key,
         order_item.part_key,
         order_item.supplier_key,
@@ -51,7 +50,7 @@ final as (
         inner join part_supplier
             on order_item.part_key = part_supplier.part_key and
                 order_item.supplier_key = part_supplier.supplier_key
-              
+
 )
 select 
     *
