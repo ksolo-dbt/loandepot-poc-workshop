@@ -38,15 +38,22 @@ metrics:
     type_params:
       measure: supplier_gross_revenue
 
-  - name: total_items_sold_count
+  - name: total_items_sold
     description: The total number of items sold
     type: simple
     label: Total Items Sold
     type_params:
       measure: total_items_sold
 
-  - name: average_gross_sales_by_supplier
-    description: The average gross sales amount by supplier
+  - name: total_gross_sales
+    description: The total gross sales amount
+    type: simple
+    label: Total Gross Sales
+    type_params:
+      measure: total_gross_sales
+
+  - name: average_gross_sales
+    description: The average gross sales amount
     type: simple
     label: Average Gross Sales
     type_params:
@@ -92,6 +99,14 @@ metrics:
     type_params:
       numerator: total_revenue
       denominator: total_customers
+
+  - name: average_items_per_sale
+    description: The average number of items per sale
+    type: ratio
+    label: Average Items per Sale
+    type_params:
+      numerator: total_items_sold
+      denominator: total_gross_sales
 
   # Derived metrics
   - name: total_profit
