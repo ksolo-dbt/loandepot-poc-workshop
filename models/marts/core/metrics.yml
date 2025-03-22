@@ -24,6 +24,34 @@ metrics:
     type_params:
       measure: total_customers
 
+  - name: total_supplier_revenue
+    description: The total net revenue by supplier
+    type: simple
+    label: Total Supplier Revenue
+    type_params:
+      measure: supplier_revenue
+
+  - name: total_supplier_gross_revenue
+    description: The total gross revenue by supplier
+    type: simple
+    label: Total Supplier Gross Revenue
+    type_params:
+      measure: supplier_gross_revenue
+
+  - name: total_items_sold_count
+    description: The total number of items sold
+    type: simple
+    label: Total Items Sold
+    type_params:
+      measure: total_items_sold
+
+  - name: average_gross_sales_by_supplier
+    description: The average gross sales amount by supplier
+    type: simple
+    label: Average Gross Sales
+    type_params:
+      measure: average_gross_sales
+
   # Cumulative metrics
   - name: cumulative_revenue_total
     description: The cumulative revenue for the business

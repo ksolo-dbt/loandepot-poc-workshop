@@ -126,6 +126,12 @@ semantic_models:
       - name: total_items_sold
         agg: sum
         expr: quantity
+      - name: total_gross_sales
+        agg: sum
+        expr: gross_item_sales_amount
+      - name: average_gross_sales
+        agg: average
+        expr: gross_item_sales_amount
 
   - name: suppliers
     description: |
