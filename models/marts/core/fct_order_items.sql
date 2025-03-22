@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',
+        materialized='table',
         tags = ['finance']
     )
 }}
@@ -51,12 +51,7 @@ final as (
         inner join part_supplier
             on order_item.part_key = part_supplier.part_key and
                 order_item.supplier_key = part_supplier.supplier_key
-
-    {% if is_incremental() %}
-    -- this filter will only be applied on an incremental run
-    where order_date > (select max(order_date) from {{this}} )
-
-    {% endif %}                
+              
 )
 select 
     *
