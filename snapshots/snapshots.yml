@@ -1,6 +1,6 @@
  snapshots:
-  - name: fct_orders_snapshot
-    relation: ref('fct_orders')
+  - name: orders_snapshot
+    relation: ref('raw_orders')
     config:
       unique_key: order_id
       strategy: timestamp
