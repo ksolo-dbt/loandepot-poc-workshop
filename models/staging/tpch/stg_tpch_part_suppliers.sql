@@ -1,6 +1,6 @@
 with source as (
 
-    select * from {{ source('tpch', 'partsupply') }}
+    select * from {{ source('tpch', 'partsupp') }}
 
 ),
 

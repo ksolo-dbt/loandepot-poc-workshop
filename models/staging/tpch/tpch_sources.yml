@@ -4,11 +4,11 @@ version: 2
 sources:
   - name: tpch
     description: Welcome to the dbt Labs demo dbt project! We use the [TPCH dataset](https://docs.snowflake.com/en/user-guide/sample-data-tpch.html) to create a sample project to emulate what a production project might look like!
-    database: sales-demo-project-314714
-    schema: raw
+    database: raw
+    schema: tpch_sf001
     freshness: # make this a warning as this is static data
           warn_after: {count: 12, period: hour}
-    loaded_at_field: TIMESTAMP_SUB(CURRENT_TIMESTAMP(), INTERVAL 6 HOUR) #this is for demo purposes
+    loaded_at_field: current_timestamp() - interval '6.3 hours' #this is for demo purposes
     tables:    
       - name: customer
         description: main customer table
@@ -83,7 +83,7 @@ sources:
           - name: p_comment
             description: '{{ doc("comment") }}'
 
-      - name: partsupply
+      - name: partsupp
         description: main part supplier table
         columns:
           - name: ps_partkey
@@ -146,6 +146,12 @@ sources:
             description: raw account balance
           - name: s_comment
             description: '{{ doc("comment") }}'
+  
+  - name: tpch_now
+    description: Welcome to the dbt Labs demo dbt project! We use the [TPCH dataset](https://docs.snowflake.com/en/user-guide/sample-data-tpch.html) to create a sample project to emulate what a production project might look like!
+    database: raw
+    schema: tpch_now
+    tables:
       - name: orders
         description: main order tracking table
         
@@ -179,6 +185,7 @@ sources:
           - name: o_comment
             description: '{{ doc("comment") }}'
       - name: lineitem
+        schema: tpch_now
         description: main lineitem table
         columns:
           - name: l_orderkey
@@ -231,5 +238,36 @@ sources:
           - name: l_shipmode
             description: method of shipping
           - name: l_comment
-            description: '{{ doc("comment") }}'  
+            description: '{{ doc("comment") }}'
 
+  - name: movie_reviews
+    description: This data set contains the text of movies reviews from IMDB and the true sentiment score of each review.
+    database: analytics
+    schema: raw
+    tables:
+      - name: raw_movie_reviews
+        description: main review table
+        
+        columns:
+          - name: review_text
+            description: movie review text
+            data_tests: 
+              - not_null
+          - name: sentiment_value
+            description: sentiemnt score, either 0 or 1 where 0 is negative and 1 is positive
+            data_tests: 
+              - not_null
+              - accepted_values:
+                  values: [1,0]
+                  severity: warn
+          - name: id
+            description: primary key of the movie review table
+            data_tests: 
+              - not_null
+              - unique
+          - name: movie_id
+            description: foreign key identifying which movie the review is for
+            data_tests: 
+              - not_null
+          - name: response_time
+            description: Time the review was analyzed.
