@@ -37,7 +37,6 @@ models:
     marts:
       core:
         +materialized: table
-        +grants:  
       
 seeds:
   analytics:
