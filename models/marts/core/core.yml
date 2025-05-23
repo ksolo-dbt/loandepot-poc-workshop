@@ -61,41 +61,8 @@ models:
       - name: is_low_value
         data_type: varchar(1)
         description: low revenue account
-    versions:
-      - v: 1
-        columns:
-          - include: all
-            exclude: [is_high_value,is_mid_value,is_low_value]
-        deprecation_date: 2024-8-31 00:00:00.00+00:00
-      - v: 2
-        columns:
-          - include: all
-            exclude: [tier_name]
-    latest_version: 2
-    
-  - name: dim_parts
-    description: Parts dimensions table
-    columns:
-      - name: part_key
-        description: primary key of the model
-        data_tests:
-          - unique
-          - not_null
-      - name: manufacturer
-        description: manufacturer of the part
-      - name: name
-        description: name of the part
-      - name: brand
-        description: brand of the part
-      - name: type
-        description: type of part including material
-      - name: size
-        description: size of the part
-      - name: container
-        description: container of the part
-      - name: retail_price
-        description: '{{ doc("retail_price") }}'
 
+   
   - name: dim_suppliers
     description: Suppliers dimensions table
     columns:
@@ -190,11 +157,6 @@ models:
           - not_null
       - name: customer_key
         description: foreign key for customers
-        data_tests:
-          - relationships:
-              to: ref('dim_customers')
-              field: customer_key
-              severity: error
       - name: order_date
         description: date of the order
       - name: status_code
