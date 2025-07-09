@@ -154,6 +154,7 @@ sources:
     tables:
       - name: orders
         description: main order tracking table
+        loaded_at_field: current_timestamp()
         
         columns:
           - name: o_orderkey
