@@ -61,7 +61,7 @@ exposures:
     depends_on:
       - ref('fct_orders')
       - ref('dim_suppliers')
-      - ref('dim_customers')
+      - ref('dim_customers_v1')
 
     owner:
       name: Business Operations Team 
@@ -76,4 +76,4 @@ exposures:
       name: DBT User Bob
       email: dbtuserbob@getdbt.com
     depends_on:
-        - ref('agg_ship_modes_dynamic_pivot')
+        - ref('agg_ship_modes_hardcoded_pivot')

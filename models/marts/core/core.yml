@@ -8,11 +8,11 @@ groups:
 
 models:
   - name: dim_customers
-    group: data_team
-    access: public
     config:
       contract:
         enforced: true
+      group: data_team
+      access: public
     description: Customer dimensions table
     columns:
       - name: customer_key
@@ -26,8 +26,10 @@ models:
         description: region name
         data_tests:
           - accepted_values:
-              values: ['AFRICA','MIDDLE EAST','ASIA','EUROPE','AMERICA']
-              severity: warn
+              config:
+                severity: warn
+              arguments:
+                values: ['AFRICA', 'MIDDLE EAST', 'ASIA', 'EUROPE', 'AMERICA']
       - name: name
         data_type: varchar(25)
         description: customer id
@@ -62,7 +64,7 @@ models:
         data_type: varchar(1)
         description: low revenue account
 
-   
+
   - name: dim_suppliers
     description: Suppliers dimensions table
     columns:
@@ -83,10 +85,7 @@ models:
         description: '{{ doc("phone_number") }}'
       - name: account_balance
         description: '{{ doc("account_balance") }}'
- 
   - name: fct_order_items
-    group: data_team
-    access: public
     description: order items fact table
     columns:
       - name: order_item_key
@@ -131,7 +130,7 @@ models:
       - name: nation_key
         description: 'Nation key'
         data_tests:
-         - not_null
+          - not_null
       - name: order_item_count
         description: count of order items
       - name: quantity
@@ -146,7 +145,9 @@ models:
         description: '{{ doc("item_tax_amount") }}'
       - name: net_item_sales_amount
         description: '{{ doc("net_item_sales_amount") }}'
-  
+    config:
+      group: data_team
+      access: public
   - name: fct_orders
     description: orders fact table
     columns:
