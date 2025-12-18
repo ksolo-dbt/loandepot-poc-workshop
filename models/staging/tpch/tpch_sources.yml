@@ -5,7 +5,7 @@ sources:
   - name: tpch
     description: Welcome to the dbt Labs demo dbt project! We use the [TPCH dataset](https://docs.snowflake.com/en/user-guide/sample-data-tpch.html) to create a sample project to emulate what a production project might look like!
     database: raw
-    schema: tpch_sf001
+    schema: tpch
     tables:
       - name: customer
         description: main customer table
@@ -163,7 +163,7 @@ sources:
   - name: tpch_now
     description: Welcome to the dbt Labs demo dbt project! We use the [TPCH dataset](https://docs.snowflake.com/en/user-guide/sample-data-tpch.html) to create a sample project to emulate what a production project might look like!
     database: raw
-    schema: tpch_now
+    schema: tpch
     tables:
       - name: orders
         description: main order tracking table
@@ -264,36 +264,36 @@ sources:
         config:
           meta:
             schema: tpch_now
-  - name: movie_reviews
-    description: This data set contains the text of movies reviews from IMDB and the true sentiment score of each review.
-    database: analytics
-    schema: raw
-    tables:
-      - name: raw_movie_reviews
-        description: main review table
+  # - name: movie_reviews
+  #   description: This data set contains the text of movies reviews from IMDB and the true sentiment score of each review.
+  #   database: analytics
+  #   schema: raw
+  #   tables:
+  #     - name: raw_movie_reviews
+  #       description: main review table
 
-        columns:
-          - name: review_text
-            description: movie review text
-            data_tests:
-              - not_null
-          - name: sentiment_value
-            description: sentiemnt score, either 0 or 1 where 0 is negative and 1 is positive
-            data_tests:
-              - not_null
-              - accepted_values:
-                  config:
-                    severity: warn
-                  arguments:
-                    values: [1, 0]
-          - name: id
-            description: primary key of the movie review table
-            data_tests:
-              - not_null
-              - unique
-          - name: movie_id
-            description: foreign key identifying which movie the review is for
-            data_tests:
-              - not_null
-          - name: response_time
-            description: Time the review was analyzed.
+  #       columns:
+  #         - name: review_text
+  #           description: movie review text
+  #           data_tests:
+  #             - not_null
+  #         - name: sentiment_value
+  #           description: sentiemnt score, either 0 or 1 where 0 is negative and 1 is positive
+  #           data_tests:
+  #             - not_null
+  #             - accepted_values:
+  #                 config:
+  #                   severity: warn
+  #                 arguments:
+  #                   values: [1, 0]
+  #         - name: id
+  #           description: primary key of the movie review table
+  #           data_tests:
+  #             - not_null
+  #             - unique
+  #         - name: movie_id
+  #           description: foreign key identifying which movie the review is for
+  #           data_tests:
+  #             - not_null
+  #         - name: response_time
+  #           description: Time the review was analyzed.
