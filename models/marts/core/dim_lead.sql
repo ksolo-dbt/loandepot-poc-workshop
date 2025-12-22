@@ -2,7 +2,5 @@ select
   l.lead_id,
   l.created_date,
   l.status,
-  l.state,
-  l.lead_source_id,
-  l.associate_id
+  l.state
 from {{ ref('stg_dim_lead') }} l
