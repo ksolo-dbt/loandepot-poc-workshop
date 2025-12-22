@@ -1,0 +1,8 @@
+loan_id,product,funded_date,loan_purpose,property_type,occupancy
+401,Conventional,2025-12-15,Purchase,Single Family,Owner-Occupied
+402,FHA,2025-12-18,Purchase,Condo,Owner-Occupied
+403,VA,2025-12-20,Refinance,Single Family,Owner-Occupied
+404,Conventional,2025-12-22,Purchase,Townhome,Owner-Occupied
+405,Jumbo,2025-12-25,Purchase,Single Family,Owner-Occupied
+406,Conventional,2025-12-26,Refinance,Single Family,Owner-Occupied
+407,HELOC,2025-12-27,Refinance,Single Family,Owner-Occupied

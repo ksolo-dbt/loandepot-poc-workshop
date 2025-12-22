@@ -1,46 +1,96 @@
-# Name your project! Project names should contain only lowercase characters
-# and underscores. A good project name should reflect your organization's
-# name or the intended use of these models
+
 name: 'analytics'
 version: '1.0.0'
 config-version: 2
 dbt-cloud:
   project-id: 206289
 
-# This setting configures which "profile" dbt uses for this project.
 profile: 'analytics'
-# These configurations specify where dbt should look for different types of files.
-# The `source-paths` config, for example, states that models in this project can be
-# found in the "models/" directory. You probably won't need to change these!
+
 model-paths: ["models"]
 analysis-paths: ["analyses"]
 test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
-clean-targets:         # directories to be removed by `dbt clean`
+
+clean-targets:
   - "target"
   - "dbt_modules"
   - "dbt_packages"
-
 
 models:
   analytics:
     staging:
       +materialized: view
-
     marts:
       core:
         +materialized: table
 
+# ✅ Replace the Snowflake seed block with the seeds you added
 seeds:
   analytics:
-    snowflake_contract_rates:
+    dim_associate:
+      +quote_columns: true
       +column_types:
-        effective_date: DATE
-        rate: NUMBER
+        associate_id: int
+        associate_name: string
+        role: string
+        region: string
+        hire_date: date
+
+    dim_lead_source:
+      +quote_columns: true
+      +column_types:
+        lead_source_id: int
+        source_name: string
+        channel: string
+        cost_bucket: string
+        category: string
+
+    dim_lead:
+      +quote_columns: true
+      +column_types:
+        lead_id: int
+        lead_source_id: int
+        associate_id: int
+        created_date: date
+        status: string
+        state: string
+
+    dim_loan:
+      +quote_columns: true
+      +column_types:
+        loan_id: int
+        product: string
+        funded_date: date
+        loan_purpose: string
+        property_type: string
+        occupancy: string
+
+    fact_lead_lifecycle:
+      +quote_columns: true
+      +column_types:
+        fact_lead_lifecycle_id: int
+        lead_id: int
+        lifecycle_stage: string
+        associate_id: int
+        stage_date: date
+        lead_source_id: int
+
+    fact_loan:
+      +quote_columns: true
+      +column_types:
+        fact_loan_id: int
+        loan_id: int
+        lead_id: int
+        associate_id: int
+        funded_date: date
+        amount: decimal(18,2)
+        interest_rate: decimal(6,3)
 
 snapshots:
   +target_schema: snapshots_dev
+
 flags:
   require_generic_test_arguments_property: true

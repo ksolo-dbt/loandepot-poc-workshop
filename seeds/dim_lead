@@ -1,0 +1,6 @@
+lead_id,lead_source_id,associate_id,created_date,status,state
+301,201,104,2025-11-28,New,CA
+302,202,104,2025-11-29,New,CA
+303,203,105,2025-12-01,Qualified,CA
+304,205,104,2025-12-02,New,CA
+305,204,105,2025-12-03,New,CA
