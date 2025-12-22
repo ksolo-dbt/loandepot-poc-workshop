@@ -1,1 +1,1 @@
-select * from {{ ref('dim_lead') }
+select * from {{ ref('dim_lead') }}

@@ -4,4 +4,4 @@ select
   channel,
   cost_bucket,
   category
-from {{ ref('stg_dim_lead_source') }
+from {{ ref('stg_dim_lead_source')}}
