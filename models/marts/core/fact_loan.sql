@@ -21,9 +21,9 @@ select
   f.amount,
   f.interest_rate
 from {{ ref('stg_fact_loan') }} f
-left join {{ ref('dim_loan_mart') }}       dl     on f.loan_id       = dl.loan_id
-left join {{ ref('dim_lead_mart') }}       dlead  on f.lead_id       = dlead.lead_id
-left join {{ ref('dim_associate_mart') }}  dassoc on f.associate_id  = dassoc.associate_id
+left join {{ ref('dim_loan') }}       dl     on f.loan_id       = dl.loan_id
+left join {{ ref('dim_lead') }}       dlead  on f.lead_id       = dlead.lead_id
+left join {{ ref('dim_associate') }}  dassoc on f.associate_id  = dassoc.associate_id
 
 {% if is_incremental() %}
   -- Watermark: only process rows newer than what's already in the target
