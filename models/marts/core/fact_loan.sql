@@ -2,7 +2,7 @@
 {{ config(
     materialized='incremental',
     incremental_strategy='merge',
-    unique_key=['loan_id','funded_date'],     -- composite grain to avoid duplicates
+    unique_key=['loan_id','funded_date'],
     on_schema_change='append_new_columns',
     file_format='delta'
 ) }}

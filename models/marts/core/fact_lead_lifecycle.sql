@@ -1,7 +1,7 @@
 {{ config(
     materialized='incremental',
     incremental_strategy='merge',
-    unique_key=['lead_id','lifecycle_stage','stage_date'],   -- event-grain upsert
+    unique_key=['lead_id','lifecycle_stage','stage_date'],
     on_schema_change='append_new_columns',
     file_format='delta'
 ) }}
