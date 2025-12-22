@@ -1,1 +1,1 @@
-select * from {{ ref('fact_loan') }}
+select * from {{ ref('seed_fact_loan') }}

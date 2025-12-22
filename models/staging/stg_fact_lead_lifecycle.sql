@@ -1,1 +1,1 @@
-select * from {{ ref('fact_lead_lifecycle') }}
+select * from {{ ref('seed_fact_lead_lifecycle') }}

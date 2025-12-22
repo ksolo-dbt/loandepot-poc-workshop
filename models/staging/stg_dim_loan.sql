@@ -5,4 +5,4 @@ select
   loan_purpose,
   property_type,
   occupancy
-from {{ ref('stg_dim_loan') }}
+from {{ ref('seed_dim_loan') }}

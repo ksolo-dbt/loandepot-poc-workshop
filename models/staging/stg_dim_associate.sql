@@ -1,1 +1,1 @@
-select * from {{ ref('dim_associate') }}
+select * from {{ ref('seed_dim_associate') }}

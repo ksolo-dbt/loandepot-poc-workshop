@@ -1,1 +1,1 @@
-select * from {{ ref('dim_lead_source') }}
+select * from {{ ref('seed_dim_lead_source') }}
