@@ -1,0 +1,10 @@
+# snapshots/associate_scd2.yml
+version: 2
+snapshots:
+  - name: associate_scd2
+    relation: ref('stg_dim_associate')
+    config:
+      target_schema: snapshots_dev
+      strategy: check
+      unique_key: associate_id
+      check_cols: ['associate_name','role','region','hire_date']
