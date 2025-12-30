@@ -1,0 +1,35 @@
+payload
+"{
+  ""companyName"": ""TechSolutions Inc."",
+  ""location"": ""San Francisco, CA"",
+  ""departments"": [
+    {
+      ""deptName"": ""Engineering"",
+      ""employees"": [
+        {
+          ""id"": ""E101"",
+          ""name"": ""Alice Johnson"",
+          ""skills"": [""Python"", ""JavaScript"", ""Database Management""]
+        },
+        {
+          ""id"": ""E102"",
+          ""name"": ""Bob Smith"",
+          ""skills"": [""Java"", ""Cloud Computing""]
+        }
+      ],
+      ""projects"": [""Project Alpha"", ""Project Beta""]
+    },
+    {
+      ""deptName"": ""Sales"",
+      ""employees"": [
+        {
+          ""id"": ""S201"",
+          ""name"": ""Charlie Brown"",
+          ""skills"": [""Negotiation"", ""CRM Software""]
+        }
+      ],
+      ""projects"": [""Sales Drive 2025""]
+    }
+  ],
+  ""isActive"": true
+}"
