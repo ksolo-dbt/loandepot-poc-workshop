@@ -1,0 +1,6 @@
+version: 2
+seeds:
+  - name: seed_conversation_json
+    config:
+      column_types:
+        json_payload: string
