@@ -1,0 +1,72 @@
+id,payload,payload_nested
+1,"{""user_id"": 101, ""action"": ""login"", ""timestamp"": ""2025-12-29""}",
+"{
+  ""companyName"": ""TechSolutions Inc."",
+  ""location"": ""San Francisco, CA"",
+  ""departments"": [
+    {
+      ""deptName"": ""Engineering"",
+      ""employees"": [
+        {
+          ""id"": ""E101"",
+          ""name"": ""Alice Johnson"",
+          ""skills"": [""Python"", ""JavaScript"", ""Database Management""]
+        },
+        {
+          ""id"": ""E102"",
+          ""name"": ""Bob Smith"",
+          ""skills"": [""Java"", ""Cloud Computing""]
+        }
+      ],
+      ""projects"": [""Project Alpha"", ""Project Beta""]
+    },
+    {
+      ""deptName"": ""Sales"",
+      ""employees"": [
+        {
+          ""id"": ""S201"",
+          ""name"": ""Charlie Brown"",
+          ""skills"": [""Negotiation"", ""CRM Software""]
+        }
+      ],
+      ""projects"": [""Sales Drive 2025""]
+    }
+  ],
+  ""isActive"": true
+}"
+
+2,"{""user_id"": 102, ""action"": ""logout"", ""timestamp"": ""2025-12-29""}",
+"{
+  ""companyName"": ""ABC Financial Inc."",
+  ""location"": ""Los Angeles, CA"",
+  ""departments"": [
+    {
+      ""deptName"": ""Accounting"",
+      ""employees"": [
+        {
+          ""id"": ""E100"",
+          ""name"": ""Alex Johnson"",
+          ""skills"": [""Audit"", ""payable"", ""Excel""]
+        },
+        {
+          ""id"": ""E101"",
+          ""name"": ""Joe Smith"",
+          ""skills"": [""Audit"", ""Receivable""]
+        }
+      ],
+      ""projects"": [""Project xyz"", ""Project alpha""]
+    },
+    {
+      ""deptName"": ""Sales"",
+      ""employees"": [
+        {
+          ""id"": ""S201"",
+          ""name"": ""Christine Brown"",
+          ""skills"": [""Negotiation"", ""CRM Software""]
+        }
+      ],
+      ""projects"": [""Sales 2030""]
+    }
+  ],
+  ""isActive"": true
+}"
